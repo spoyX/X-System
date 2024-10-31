@@ -9,7 +9,8 @@ var methodOverride = require("method-override");
 app.use(methodOverride("_method"));
 const allRoutes = require("./routes/allRoutes");
 const addUserRoute = require("./routes/addUser");
-require('dotenv').config()
+require('dotenv').config();
+
 app.use(express.json())
 // cookie-parser
 var cookieParser = require('cookie-parser')
@@ -42,11 +43,13 @@ mongoose
   .then(() => {
     app.listen(port, () => {
       console.log(`http://localhost:${port}/`);
+      
+
     });
   })
   .catch((err) => {
     console.log(err);
+  
   });
-
  app.use(allRoutes);
 app.use( "/user/add.html",addUserRoute);
